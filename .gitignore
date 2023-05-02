@@ -7,6 +7,11 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+.eslintrc.cjs
+postcss.config.js
+vite.config.js
+tailwind.config.js
+package.json
 node_modules
 dist
 dist-ssr
