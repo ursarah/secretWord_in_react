@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  background: linear-gradient(180deg, rgba(9, 35, 175, 1) 0%, rgba(0, 0, 0, 1) 100%);
+  color: #fff;
+}
