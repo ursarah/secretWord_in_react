@@ -8,6 +8,7 @@ export default {
   theme: {
     extend: {},
   },
+
   plugins: [
     plugin(function ({ addComponents }) {
       addComponents({
