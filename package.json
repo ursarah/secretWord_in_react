@@ -32,6 +32,7 @@
   },
   "optionalDependencies": {
     "@esbuild/android-arm": "^0.17.18",
-    "@esbuild/android-arm64": "^0.17.18"
+    "@esbuild/android-arm64": "^0.17.18",
+    "@esbuild/android-x64": "^0.17.18"
   }
 }
