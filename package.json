@@ -35,6 +35,8 @@
     "@esbuild/android-arm64": "^0.17.18",
     "@esbuild/android-x64": "^0.17.18",
     "@esbuild/darwin-arm64": "^0.17.18",
-    "@esbuild/darwin-x64": "^0.17.18"
+    "@esbuild/darwin-x64": "^0.17.18",
+    "@esbuild/freebsd-arm64": "^0.17.18",
+    "@esbuild/freebsd-x64": "^0.17.18"
   }
 }
