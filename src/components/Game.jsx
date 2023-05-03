@@ -60,7 +60,9 @@ function Game({
             ref={letterInputRef}
             required
           />
-          <button className="btn">Jogar</button>
+          <button className="btn" onClick={handleSubmit}>
+            Jogar
+          </button>
         </form>
       </div>
       <div className="wrongLetterContainer">
