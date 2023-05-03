@@ -778,7 +778,7 @@
     "is-date-object" "^1.0.1"
     "is-symbol" "^1.0.2"
 
-"esbuild@^0.17.5":
+"esbuild@^0.17.5", "esbuild@0.17.18":
   "integrity" "sha512-z1lix43jBs6UKjcZVKOw2xx69ffE2aG0PygLL5qJ9OS/gy0Ewd1gW/PUQIOIQGXBHWNywSc0floSKoMFF8aK2w=="
   "resolved" "https://registry.npmjs.org/esbuild/-/esbuild-0.17.18.tgz"
   "version" "0.17.18"
