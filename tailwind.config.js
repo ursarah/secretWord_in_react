@@ -29,16 +29,19 @@ export default {
         },
 
         '.space': {
-          fontSize: "70px",
+          fontSize: "35px",
           lineHeight: "1.5",
           border: "3px solid #000",
-          height: "100px",
-          width: "100px",
+          height: "60px",
+          width: "60px",
           textTransform: "uppercase",
           backgroundColor: "#fff",
           color: "#000",
           fontWeight: "bold"
-
+        },
+        ".body": {
+          background: "linear-gradient(180deg, rgba(9, 35, 175, 1) 0%, rgba(0, 0, 0, 1) 100%)",
+          color: "#fff",
         }
       }
       )

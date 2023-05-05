@@ -18,22 +18,22 @@ const stages = [
 ];
 
 function App() {
-  // Estagios do jogo
+  // 1 - Estagios do jogo
   const [gameStage, setGameStage] = useState(stages[0].name);
   const [words] = useState(wordsList);
 
-  // A palavra secreta e a dica
+  // 3.2 - A palavra secreta e a dica
   const [pickedWord, setPickedWord] = useState('');
   const [pickedCategory, setCategory] = useState('');
   const [letters, setLetters] = useState([]);
 
-  // Letras tentadas
+  // 4 - Letras tentadas
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
   const [guesses, setGuesses] = useState(3);
   const [score, setScores] = useState(0);
 
-  // Pegar palavras e categoria
+  // 3.1 - Pegar palavras e categoria
   const wordAndCategory = () => {
     const categories = Object.keys(words);
     const category = categories[Math.floor(Math.random() * categories.length)];
@@ -43,7 +43,7 @@ function App() {
     return { word, category };
   };
 
-  // Ir para a segunda tela
+  // 3 - Executando o click la na start scream
   const startGame = () => {
     const { word, category } = wordAndCategory();
 
