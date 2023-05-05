@@ -33,7 +33,7 @@ function App() {
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
   const [guesses, setGuesses] = useState(numberGuesses);
-  const [score, setScores] = useState(0);
+  const [score, setScores] = useState(100);
 
   // 3.1 - Pegar palavras e categoria
   const wordAndCategory = () => {
@@ -127,7 +127,7 @@ function App() {
           score={score}
         />
       )}
-      {gameStage === 'end' && <GameOver screenEnd={retry} />}
+      {gameStage === 'end' && <GameOver retry={retry} score={score} />}
     </div>
   );
 }
