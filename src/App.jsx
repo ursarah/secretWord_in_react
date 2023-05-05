@@ -114,7 +114,6 @@ function App() {
     setGameStage(stages[0].name);
   };
 
-  console.log(guessedLetters);
   // 6 - condições de vitoria
   // Com esse useEffect to monitorando o que escrevo
   useEffect(() => {
@@ -124,7 +123,6 @@ function App() {
       setScores((actuaScore) => (actuaScore += 100));
       startGame();
     }
-    console.log(uniLetters);
   }, [guessedLetters]);
 
   return (
