@@ -1,7 +1,7 @@
 import './App.css';
 
 // React
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // Data
 import { wordsList } from './data/word.js';
@@ -17,6 +17,8 @@ const stages = [
   { id: 3, name: 'end' },
 ];
 
+let numberGuesses = 3;
+
 function App() {
   // 1 - Estagios do jogo
   const [gameStage, setGameStage] = useState(stages[0].name);
@@ -30,7 +32,7 @@ function App() {
   // 4 - Letras tentadas
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
-  const [guesses, setGuesses] = useState(3);
+  const [guesses, setGuesses] = useState(numberGuesses);
   const [score, setScores] = useState(0);
 
   // 3.1 - Pegar palavras e categoria
@@ -82,14 +84,31 @@ function App() {
     // aqui ela ta errada
     else {
       setWrongLetters((actualWrongGuessed) => [...actualWrongGuessed, padrLetter]);
+
+      setGuesses((actualGuesses) => actualGuesses - 1);
     }
   };
   console.log(pickedWord);
   console.log(guessedLetters);
   console.log(wrongLetters);
+  const clearLetterStates = () => {
+    setGuessedLetters([]);
+    setWrongLetters([]);
+  };
+  // Use effect, monitora um dado toda vez que é mudado
+  useEffect(() => {
+    if (guesses <= 0) {
+      // Resetar os state
+      clearLetterStates();
+
+      setGameStage(stages[2].name);
+    }
+  }, [guesses]);
 
   // Voltar pra primeira tela
-  const screenEnd = () => {
+  const retry = () => {
+    setScores(0);
+    setGuesses(numberGuesses);
     setGameStage(stages[0].name);
   };
 
@@ -108,7 +127,7 @@ function App() {
           score={score}
         />
       )}
-      {gameStage === 'end' && <GameOver screenEnd={screenEnd} />}
+      {gameStage === 'end' && <GameOver screenEnd={retry} />}
     </div>
   );
 }

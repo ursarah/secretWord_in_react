@@ -1,9 +1,9 @@
 import React from 'react';
 
-function GameOver({ screenEnd }) {
+function GameOver({ retry }) {
   return (
     <div>
-      <button className="btn" onClick={screenEnd}>
+      <button className="btn" onClick={retry}>
         Resetar o jogo
       </button>
     </div>
