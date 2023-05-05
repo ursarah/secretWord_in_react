@@ -1,7 +1,7 @@
 import './App.css';
 
 // React
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 // Data
 import { wordsList } from './data/word.js';
@@ -17,8 +17,6 @@ const stages = [
   { id: 3, name: 'end' },
 ];
 
-let numberGuesses = 3;
-let scores = 0;
 // 1 - Estagios do jogo
 function App() {
   const [gameStage, setGameStage] = useState(stages[0].name);
@@ -32,21 +30,21 @@ function App() {
   // 4 - Letras tentadas
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
-  const [guesses, setGuesses] = useState(numberGuesses);
-  const [score, setScores] = useState(scores);
+  const [guesses, setGuesses] = useState(3);
+  const [score, setScores] = useState(0);
 
   // 3.1 - Pegar palavras e categoria
-  const wordAndCategory = () => {
+  const wordAndCategory = useCallback(() => {
     const categories = Object.keys(words);
     const category = categories[Math.floor(Math.random() * categories.length)];
 
     // Não precisa colocar só numero
     const word = words[category][Math.floor(Math.random() * words[category].length)];
     return { word, category };
-  };
+  }, [words]);
 
   // 3 - Executando o click la na start scream
-  const startGame = () => {
+  const startGame = useCallback(() => {
     clearLetterStates();
     const { word, category } = wordAndCategory();
 
@@ -57,11 +55,11 @@ function App() {
     setPickedWord(word);
     setCategory(category);
     setLetters(wordLetters);
-  };
+  }, [wordAndCategory]);
 
   const startScream = () => {
     setGameStage(stages[1].name);
-    setScores(scores);
+    setScores(0);
   };
 
   // 4.3 - a função que vai ser executada quando der submit
@@ -113,7 +111,7 @@ function App() {
   // 5 - condições de derrota, nessa função limpa tudo e reseta o jogo
   const retry = () => {
     setScores(0);
-    setGuesses(numberGuesses);
+    setGuesses(3);
     setGameStage(stages[0].name);
   };
 
@@ -124,13 +122,10 @@ function App() {
     const uniLetters = [...new Set(letters)];
 
     if (uniLetters.length === guessedLetters.length) {
-      console.log(uniLetters);
-      console.log(guessedLetters);
       setScores((actuaScore) => (actuaScore += 100));
       startGame();
     }
-    console.log(gameStage);
-  }, [guessedLetters]);
+  }, [guessedLetters, letters, startGame]);
 
   return (
     <div className="flex justify-center items-center text-center">

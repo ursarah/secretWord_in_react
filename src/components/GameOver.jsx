@@ -1,5 +1,3 @@
-import React from 'react';
-
 function GameOver({ retry, score }) {
   return (
     <div className="h-screen">
