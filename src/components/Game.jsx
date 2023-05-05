@@ -36,26 +36,26 @@ function Game({
       </h3>
 
       {letters.length >= 6 ? (
-        <div className="flex flex-wrap justify-center m-[1.5em] p-[.6em] border-[20px] border-solid border-[#ecfa00]">
-          {letters.map((letter, i) =>
-            guessedLetters.includes(letter) ? (
-              <span key={i} className="space md:h-[100px] md:w-[100px]">
-                {letter}
-              </span>
-            ) : (
-              <span key={i} className="space md:h-[100px] md:w-[100px]"></span>
-            )
-          )}
-        </div>
-      ) : (
-        <div className="flex justify-center m-[1.5em] p-[1em] border-[20px] border-solid border-[#ecfa00]">
+        <div className="flex flex-wrap justify-center m-[1em] p-[.6em] border-[20px] border-solid border-[#ecfa00]">
           {letters.map((letter, i) =>
             guessedLetters.includes(letter) ? (
               <span key={i} className="space md:h-[100px] md:w-[100px] md:text-[70px]">
                 {letter}
               </span>
             ) : (
-              <span key={i} className="space md:h-[100px] md:w-[100px]"></span>
+              <span key={i} className="space md:h-[100px] md:w-[100px] md:text-[70px]"></span>
+            )
+          )}
+        </div>
+      ) : (
+        <div className="flex justify-center m-[1em] p-[.6em] border-[20px] border-solid border-[#ecfa00]">
+          {letters.map((letter, i) =>
+            guessedLetters.includes(letter) ? (
+              <span key={i} className="space md:h-[100px] md:w-[100px] md:text-[70px]">
+                {letter}
+              </span>
+            ) : (
+              <span key={i} className="space md:h-[100px] md:w-[100px] md:text-[70px]"></span>
             )
           )}
         </div>
