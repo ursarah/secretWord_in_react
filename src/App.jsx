@@ -18,9 +18,9 @@ const stages = [
 ];
 
 let numberGuesses = 3;
-
+let scores = 0;
+// 1 - Estagios do jogo
 function App() {
-  // 1 - Estagios do jogo
   const [gameStage, setGameStage] = useState(stages[0].name);
   const [words] = useState(wordsList);
 
@@ -33,7 +33,7 @@ function App() {
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
   const [guesses, setGuesses] = useState(numberGuesses);
-  const [score, setScores] = useState(0);
+  const [score, setScores] = useState(scores);
 
   // 3.1 - Pegar palavras e categoria
   const wordAndCategory = () => {
@@ -57,8 +57,11 @@ function App() {
     setPickedWord(word);
     setCategory(category);
     setLetters(wordLetters);
+  };
 
+  const startScream = () => {
     setGameStage(stages[1].name);
+    setScores(scores);
   };
 
   // 4.3 - a função que vai ser executada quando der submit
@@ -119,15 +122,19 @@ function App() {
   useEffect(() => {
     // 6.1 - Pegando as letras e transformando em uma array de letras unicas
     const uniLetters = [...new Set(letters)];
+
     if (uniLetters.length === guessedLetters.length) {
+      console.log(uniLetters);
+      console.log(guessedLetters);
       setScores((actuaScore) => (actuaScore += 100));
       startGame();
     }
+    console.log(gameStage);
   }, [guessedLetters]);
 
   return (
     <div className="flex justify-center items-center text-center">
-      {gameStage === 'start' && <StartScream startGame={startGame} />}
+      {gameStage === 'start' && <StartScream startGame={startGame} startScream={startScream} />}
       {gameStage === 'game' && (
         <Game
           verifyLetters={verifyLetters}
