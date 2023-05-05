@@ -33,7 +33,7 @@ function App() {
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
   const [guesses, setGuesses] = useState(numberGuesses);
-  const [score, setScores] = useState(100);
+  const [score, setScores] = useState(0);
 
   // 3.1 - Pegar palavras e categoria
   const wordAndCategory = () => {
@@ -47,6 +47,7 @@ function App() {
 
   // 3 - Executando o click la na start scream
   const startGame = () => {
+    clearLetterStates();
     const { word, category } = wordAndCategory();
 
     // Separando a word em array
@@ -60,7 +61,7 @@ function App() {
     setGameStage(stages[1].name);
   };
 
-  // Finalizar o jogo
+  // 4.3 - a função que vai ser executada quando der submit
   const verifyLetters = (letter) => {
     // padronizando a letra que recebe do usuario
     const padrLetter = letter.toLowerCase();
@@ -88,14 +89,15 @@ function App() {
       setGuesses((actualGuesses) => actualGuesses - 1);
     }
   };
-  console.log(pickedWord);
-  console.log(guessedLetters);
-  console.log(wrongLetters);
+
+  // 5.2 - limpando as palavras tentadas e as erradas
   const clearLetterStates = () => {
     setGuessedLetters([]);
     setWrongLetters([]);
   };
-  // Use effect, monitora um dado toda vez que é mudado
+
+  // 5.1 - Fazendo com que o jogo acabe quando aparece essas condições
+  // useEffect monitora um dado toda vez que é mudado
   useEffect(() => {
     if (guesses <= 0) {
       // Resetar os state
@@ -105,12 +107,25 @@ function App() {
     }
   }, [guesses]);
 
-  // Voltar pra primeira tela
+  // 5 - condições de derrota, nessa função limpa tudo e reseta o jogo
   const retry = () => {
     setScores(0);
     setGuesses(numberGuesses);
     setGameStage(stages[0].name);
   };
+
+  console.log(guessedLetters);
+  // 6 - condições de vitoria
+  // Com esse useEffect to monitorando o que escrevo
+  useEffect(() => {
+    // 6.1 - Pegando as letras e transformando em uma array de letras unicas
+    const uniLetters = [...new Set(letters)];
+    if (uniLetters.length === guessedLetters.length) {
+      setScores((actuaScore) => (actuaScore += 100));
+      startGame();
+    }
+    console.log(uniLetters);
+  }, [guessedLetters]);
 
   return (
     <div className="flex justify-center items-center text-center">
