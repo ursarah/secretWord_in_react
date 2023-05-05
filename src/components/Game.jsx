@@ -25,7 +25,7 @@ function Game({
   };
 
   return (
-    <div>
+    <div className="h-screen">
       <p className="m-[10px]">
         <span className="font-bold">Pontuação: {score}</span>
       </p>
