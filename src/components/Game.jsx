@@ -51,7 +51,7 @@ function Game({
         <div className="flex justify-center m-[1.5em] p-[1em] border-[20px] border-solid border-[#ecfa00]">
           {letters.map((letter, i) =>
             guessedLetters.includes(letter) ? (
-              <span key={i} className="space md:h-[100px] md:w-[100px]">
+              <span key={i} className="space md:h-[100px] md:w-[100px] md:text-[70px]">
                 {letter}
               </span>
             ) : (
@@ -68,7 +68,7 @@ function Game({
           onSubmit={handleSubmit}
         >
           <input
-            className="mb-[1em] h-[50px] w-[50px] text-[2em] text-center md:mr-[1em] text-black"
+            className="mb-[1em] h-[50px] w-[50px] text-[2em] text-center text-black md:mt-[20px] md:mr-[1em]"
             type="text"
             name="letter"
             maxLength="1"
