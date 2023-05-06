@@ -17,7 +17,6 @@ function Game({
     e.preventDefault();
     // 4.2 - O valor que foi digitado vem para ca, e essa função é executada la no app
     verifyLetters(letter);
-
     setLetter('');
 
     // O imput continua focado

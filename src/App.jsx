@@ -124,6 +124,7 @@ function App() {
 
     if (uniLetters.length === guessedLetters.length) {
       setScores((actuaScore) => (actuaScore += 100));
+      setGuesses(3);
       startGame();
     }
   }, [guessedLetters, letters, startGame]);

@@ -1,8 +1,5 @@
 export const wordsList = {
-    carro: ["Motor", "Porta", "Capô", "Pneu", "Antena"],
-    fruta: ["Banana", "Maçã", "Pêra", "Mamão", "Laranja"],
-    corpo: ["Braço", "Perna", "Cérebro", "Pescoço", "Olhos"],
-    computador: ["Mouse", "Teclado", "Monitor", "Gabinete"],
-    programação: ["Linguagem", "Framework", "JavaScript", "React"],
-    alimento: ["Arroz", "Feijão", "Carne", "Leite", "Ovo"],
+    amigosKF: ["Matheus", "Silver", "Renata", "Clicia", "Isabelle", "Ivan", "Beto", "Yuri", "Mauricio", "Pricila", "Catarina", "Barbara", "Dafne", "Mari", "Sarah"],
+    formas: ["Tan Tui", "Fu Shi Shuan", "Thcon I Chen", "Kon Li Kuen", "Pan Pou kiu"],
+    anime: ["Pokemon", "One Piece", "Demon Slayer", "Naruto", "Dragon ball"]
 };
