@@ -60,6 +60,7 @@ function App() {
   const startScream = () => {
     setGameStage(stages[1].name);
     setScores(0);
+    startGame();
   };
 
   // 4.3 - a função que vai ser executada quando der submit
@@ -129,7 +130,7 @@ function App() {
 
   return (
     <div className="flex justify-center items-center text-center">
-      {gameStage === 'start' && <StartScream startGame={startGame} startScream={startScream} />}
+      {gameStage === 'start' && <StartScream startScream={startScream} />}
       {gameStage === 'game' && (
         <Game
           verifyLetters={verifyLetters}

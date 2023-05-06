@@ -1,5 +1,4 @@
-function StartScream({ startGame, startScream }) {
-  startGame();
+function StartScream({ startScream }) {
   return (
     <div className="h-screen">
       <h1 className="text-[3.5em]">Secret Word</h1>
