@@ -24,8 +24,8 @@ function Game({
   };
 
   return (
-    <div className="h-screen">
-      <p className="m-[10px]">
+    <div className="h-full">
+      <p className="my-[3px]">
         <span className="font-bold">Pontuação: {score}</span>
       </p>
       <h1 className="text-[2.5rem]">Adivinhe a palavra:</h1>
@@ -33,7 +33,7 @@ function Game({
         Dica sobre a palavra:
         <span className="text-[#ecfa00] font-bold"> {pickedCategory.toUpperCase()}</span>
       </h3>
-
+      <p className="m-[10px] text-[#ecfa00] font-bold">Usem espaços e acentos</p>
       {letters.length >= 6 ? (
         <div className="flex flex-wrap justify-center m-[1em] p-[.6em] border-[20px] border-solid border-[#ecfa00]">
           {letters.map((letter, i) =>

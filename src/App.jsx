@@ -17,6 +17,8 @@ const stages = [
   { id: 3, name: 'end' },
 ];
 
+let numberGuesses = 4;
+
 // 1 - Estagios do jogo
 function App() {
   const [gameStage, setGameStage] = useState(stages[0].name);
@@ -30,7 +32,7 @@ function App() {
   // 4 - Letras tentadas
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
-  const [guesses, setGuesses] = useState(3);
+  const [guesses, setGuesses] = useState(numberGuesses);
   const [score, setScores] = useState(0);
 
   // 3.1 - Pegar palavras e categoria
@@ -112,7 +114,7 @@ function App() {
   // 5 - condições de derrota, nessa função limpa tudo e reseta o jogo
   const retry = () => {
     setScores(0);
-    setGuesses(3);
+    setGuesses(numberGuesses);
     setGameStage(stages[0].name);
   };
 
@@ -123,12 +125,13 @@ function App() {
     const uniLetters = [...new Set(letters)];
 
     if (uniLetters.length === guessedLetters.length) {
-      setScores((actuaScore) => (actuaScore += 100));
-      setGuesses(3);
+      setScores((actualScore) => (actualScore += 100));
+      setGuesses(numberGuesses);
       startGame();
     }
   }, [guessedLetters, letters, startGame]);
 
+  // 7 - vitoria
   return (
     <div className="flex justify-center items-center text-center">
       {gameStage === 'start' && <StartScream startScream={startScream} />}
